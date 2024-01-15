@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent'
 import CardHeader from '@mui/material/CardHeader'
 import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
+import { useRouter } from 'next/router'
 import { Controller, useForm } from 'react-hook-form'
 import { api } from 'src/utils/api'
 import * as yup from 'yup'
@@ -19,6 +20,8 @@ interface IFormCategoria {
 }
 
 export function FormCategoria() {
+  const router = useRouter()
+
   const {
     control,
     setError,
@@ -30,7 +33,8 @@ export function FormCategoria() {
   })
 
   const onSubmit = async (data: IFormCategoria) => {
-    const response = await api.post('/api/categorias', data)
+    await api.post('/api/categorias', data)
+    router.reload()
   }
   return (
     <Card>

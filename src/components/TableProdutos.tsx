@@ -1,3 +1,4 @@
+import { Link } from "@mui/material"
 import { IProduto } from "src/types"
 
 interface Props {
@@ -5,22 +6,27 @@ interface Props {
 }
 export const TableProduto = ({ produtos }: Props) => {
   return (
-    <table>
+    <table style={{ width: '100%' }}>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Valor</th>
-          <th>Categoria</th>
+          <th style={{ textAlign: 'center' }}>ID</th>
+          <th style={{ textAlign: 'left' }}>Nome</th>
+          <th style={{ textAlign: 'left' }}>Valor</th>
+          <th style={{ textAlign: 'left' }}>Categoria</th>
         </tr>
       </thead>
       <tbody>
         {produtos?.map(produto => (
           <tr>
-            <td>{produto.idProduto}</td>
-            <td>{produto.nomeProduto}</td>
-            <td>{produto.valorProduto}</td>
-            <td>{produto.categoriaProduto.nomeCategoria}</td>
+            <td style={{ textAlign: 'center' }}>{produto.idProduto}</td>
+            <td style={{ textAlign: 'left' }}>{produto.nomeProduto}</td>
+            <td style={{ textAlign: 'left' }}>{produto.valorProduto}</td>
+            <td style={{ textAlign: 'left' }}>{produto.categoriaProduto.nomeCategoria}</td>
+            <td>
+              <Link variant="button" href={`/produtos/editar/${produto.idProduto}`}>
+                Ver
+              </Link>
+            </td>
           </tr>
         ))}
       </tbody>
