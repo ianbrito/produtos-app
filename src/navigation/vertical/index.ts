@@ -4,21 +4,14 @@ import { VerticalNavItemsType } from 'src/@core/layouts/types'
 const navigation = (): VerticalNavItemsType => {
   return [
     {
-      title: 'Home',
-      path: '/home',
+      title: 'Produtos',
+      path: '/produtos',
       icon: 'bx:home-circle',
     },
     {
-      title: 'Second Page',
-      path: '/second-page',
+      title: 'Categorias',
+      path: '/categorias',
       icon: 'bx:envelope',
-    },
-    {
-      path: '/acl',
-      action: 'read',
-      subject: 'acl-page',
-      title: 'Access Control',
-      icon: 'bx:shield',
     }
   ]
 }
